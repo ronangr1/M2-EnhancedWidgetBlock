@@ -103,7 +103,8 @@
 
             fields.option.container.on('input', '.block-title', function (e) {
                 const elem = e.target;
-                $(elem).parent().find('[type=text]').attr('name', 'parameters[' + e.currentTarget.innerText + ']')
+                const text = e.currentTarget.innerText.toLowerCase().replace(/ /g,"_").trim()
+                $(elem).parent().find('[type=text]').attr('name', 'parameters[' + text + ']')
             })
 
             fields.option.container.on('click', '.removeButtonAction', function (e) {
