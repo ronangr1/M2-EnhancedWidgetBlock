@@ -6,11 +6,11 @@
  */
 -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget class="Ronangr1\EnhancedWidgetBlock\Block\Widget\DataBlock" id="data_block">
+    <widget class="Ronangr1\EnhancedWidgetBlock\Block\Widget\DataBlock" id="data_block_widget">
         <label>Enhanced Widget Block</label>
         <description>Create data blocks on the fly in a Magento 2 Widget</description>
         <parameters>
-            <parameter name="reinsurance" xsi:type="block" required="false" visible="false">
+            <parameter name="data_block" xsi:type="block" required="false" visible="false">
                 <label>Data Block</label>
                 <block class="Ronangr1\EnhancedWidgetBlock\Block\Adminhtml\Widget\DataBlock" />
             </parameter>

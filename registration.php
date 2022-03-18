@@ -6,6 +6,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Ronan_EnhancedWidgetBlock',
+    'Ronangr1_EnhancedWidgetBlock',
     __DIR__
 );

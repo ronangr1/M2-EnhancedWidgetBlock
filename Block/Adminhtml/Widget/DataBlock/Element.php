@@ -7,7 +7,7 @@
 namespace Ronangr1\EnhancedWidgetBlock\Block\Adminhtml\Widget\DataBlock;
 
 use Magento\Backend\Block\Template;
-use Ronan\EnhancedWidgetBlock\Block\Adminhtml\Widget\DataBlock;
+use Ronangr1\EnhancedWidgetBlock\Block\Adminhtml\Widget\DataBlock;
 
 class Element extends Template
 {
