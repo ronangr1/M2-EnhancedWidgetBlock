@@ -27,6 +27,7 @@
             init: function () {
                 const self = this
                 self._showHideRemoveActionButton()
+                self._dataFieldTitleTextConverter()
                 return self;
             },
 
@@ -96,6 +97,14 @@
 
                 return removeButton.hide()
             },
+
+            _dataFieldTitleTextConverter: function() {
+                $('.block-title').each(function(i, el) {
+                    const text = el.textContent.replace(/_+/g, ' ').trim()
+                    const title = text.charAt(0).toUpperCase() + text.slice(1);
+                    $(el).text(title)
+                })
+            }
         }
 
         $(document).ready(function () {
