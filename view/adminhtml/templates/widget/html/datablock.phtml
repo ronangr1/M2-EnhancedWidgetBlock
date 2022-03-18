@@ -8,30 +8,29 @@
 
 ?>
 <div id="fields" data-mage-init='{"carousel":{"option": value}}'>
-    <?php if ($values = count($block->getValues())): ?>
-    <?php $i = 0; ?>
-    <?php foreach ($block->getValues() as $index => $value): ?>
-        <div id="field_<?= $i ?>" class="field">
-            <div class="block-title" contenteditable="true">
-                <?= $index ?>
-            </div>
-            <div class="add-data">
-                <div class="add-content--section">
-                    <label class="label"><?= __('Content'); ?></label>
-                    <input type="text"
-                           value="<?= $value ?>"
-                           placeholder="<?= __('Enter a value') ?>"
-                           name="<?= 'parameters[' . $index . ']' ?>"
-                    >
-                </div>
-            </div>
-            <div class="action remove" style="display: none">
-                <span class="removeButtonAction">Remove</span>
+<?php if ($values = count($block->getValues())): ?>
+<?php $i = 0; ?>
+<?php foreach ($block->getValues() as $index => $value): ?>
+    <div id="field_<?= $i ?>" class="field">
+        <div class="block-title" contenteditable="true">
+            <?= $index ?>
+        </div>
+        <div class="add-data">
+            <div class="add-content--section">
+                <label class="label"><?= __('Content'); ?></label>
+                <input type="text"
+                       value="<?= $value ?>"
+                       placeholder="<?= __('Enter a value') ?>"
+                       name="<?= 'parameters[' . $index . ']' ?>"
+                >
             </div>
         </div>
-    <?php $i++ ?>
-    <?php endforeach; ?>
-</div>
+        <div class="action remove" style="display: none">
+            <span class="removeButtonAction">Remove</span>
+        </div>
+    </div>
+<?php $i++ ?>
+<?php endforeach; ?>
 <?php else: ?>
     <div id="field_0" class="field">
         <div class="block-title" contenteditable="true">
@@ -52,7 +51,7 @@
         </div>
     </div>
 <?php endif; ?>
-
+</div>
 <div id="addAction">
     <div class="action add">
         <button id="addButtonAction">Add field</button>
