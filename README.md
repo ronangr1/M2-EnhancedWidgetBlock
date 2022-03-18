@@ -5,11 +5,11 @@ Create data blocks on the fly in a Magento 2 Widget
 
 ### Add field
 
-![name-of-you-image](https://s10.gifyu.com/images/start17927624e90def0f.gif)
+![start](https://s10.gifyu.com/images/start_widget47dc00b8c457e5e1.gif)
 
 ### Edit Data Title Field
-![name-of-you-image](https://s10.gifyu.com/images/edit_data_title.gif)
-
-###
-![name-of-you-image](https://s10.gifyu.com/images/endb7473b8cafc7c8fe.gif
+![edit](https://s10.gifyu.com/images/edit_title_field.gif
 )
+
+### Result
+![result](https://s10.gifyu.com/images/end_edit.gif)
