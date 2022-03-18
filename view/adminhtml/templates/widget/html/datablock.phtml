@@ -1,0 +1,150 @@
+<?php
+/**
+ * Copyright © Ronan Guérin All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Ronan\EnhancedWidgetBlock\Block\Adminhtml\Widget\DataBlock\Element $block */
+
+?>
+<div id="fields" data-mage-init='{"carousel":{"option": value}}'>
+    <?php if ($values = count($block->getValues())): ?>
+    <?php $i = 0; ?>
+    <?php foreach ($block->getValues() as $index => $value): ?>
+        <div id="field_<?= $i ?>" class="field">
+            <div class="block-title" contenteditable="true">
+                <?= $index ?>
+            </div>
+            <div class="add-data">
+                <div class="add-content--section">
+                    <label class="label"><?= __('Content'); ?></label>
+                    <input type="text"
+                           value="<?= $value ?>"
+                           placeholder="<?= __('Enter a value') ?>"
+                           name="<?= 'parameters[' . $index . ']' ?>"
+                    >
+                </div>
+            </div>
+            <div class="action remove" style="display: none">
+                <span class="removeButtonAction">Remove</span>
+            </div>
+        </div>
+    <?php $i++ ?>
+    <?php endforeach; ?>
+</div>
+<?php else: ?>
+    <div id="field_0" class="field">
+        <div class="block-title" contenteditable="true">
+            Custom data 0
+        </div>
+        <div class="add-data">
+            <div class="add-content--section">
+                <label class="label"><?= __('Content'); ?></label>
+                <input type="text"
+                       value=""
+                       placeholder="<?= __('Enter a value') ?>"
+                       name="parameters[data_0]"
+                >
+            </div>
+        </div>
+        <div class="action remove" style="display: none">
+            <span class="removeButtonAction">Remove</span>
+        </div>
+    </div>
+<?php endif; ?>
+
+<div id="addAction">
+    <div class="action add">
+        <button id="addButtonAction">Add field</button>
+    </div>
+</div>
+
+
+
+<style>
+
+    #fields .field:first-child {
+        padding-top: 0;
+    }
+
+    #fields .field:last-child {
+        border: none;
+        padding-bottom: 0;
+    }
+
+    #fields .field {
+        border-bottom: 1px solid #ececec;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    #fields .field .block-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #888;
+        margin-bottom: 7px;
+    }
+
+    #fields .field input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #888;
+    }
+
+    #fields .field .action.remove {
+        margin-top: 12px;
+    }
+
+    #fields .field .action .removeButtonAction {
+        display: inline-block;
+        border-radius: 4px;
+        background: #ac2925;
+        color: #fff;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.36;
+        padding: 0.6rem 1em 0.6rem;
+        text-align: center;
+        vertical-align: baseline;
+        cursor: pointer;
+    }
+
+    .add-data {
+        display: flex;
+    }
+
+    .add-data .label {
+        display: block;
+        margin-bottom: 7px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .add-icon {
+        margin-top: 6px;
+    }
+
+    .add-icon .label {
+        margin-left: 4px;
+    }
+
+    .add-icon--section {
+        margin-right: 15px;
+    }
+
+    .add-content--section {
+        flex: 1;
+    }
+
+    #addAction {
+        margin-top: 36px;
+    }
+
+    #addAction button {
+        border-radius: 4px;
+        background: #0071e6;
+        color: #fff;
+        border: none;
+    }
+</style>

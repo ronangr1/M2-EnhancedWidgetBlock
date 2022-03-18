@@ -1,0 +1,119 @@
+<?php
+/**
+ * Copyright © Ronan Guérin All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+?>
+
+<script>
+    require(['jquery', 'jquery/ui'], function ($) {
+
+        const fields = {
+
+            option: {
+                container: $('#fields'),
+                fieldToClone: $('#field_0'),
+                index: 0,
+                action: {
+                    remove: $('.action.remove')
+                }
+            },
+
+            /**
+             * Init fields when DOM is ready!
+             * @returns {fields}
+             */
+            init: function () {
+                const self = this
+                self._showHideRemoveActionButton()
+                return self;
+            },
+
+            /**
+             * Add new field base on cloned element
+             * @returns {fields}
+             */
+            addField: function () {
+                const self = this,
+                    clone = self._cloneField();
+                let index = self.option.index
+                if (clone) {
+                    clone.attr('id', 'field_' + index)
+                    clone.find('.block-title').text('Custom data ' + index)
+                    clone.find('[type="text"]').attr('name', 'parameters[data_' + index + ']').val('')
+                    clone.appendTo('#fields')
+                    index++
+                    self._showHideRemoveActionButton()
+                }
+
+                return self
+            },
+
+            /**
+             * Clone HTML element already exists in DOM
+             * @returns {boolean|*}
+             * @private
+             */
+            _cloneField: function () {
+                const self = this,
+                    fieldToClone = self.option.fieldToClone
+                if (typeof fieldToClone !== "undefined" && fieldToClone != null) {
+                    return fieldToClone.clone()
+                }
+
+                return false
+            },
+
+            /**
+             * Remove existing field from the current list
+             * @param elem
+             * @returns {fields}
+             */
+            removeField: function (elem) {
+                const self = this
+                let index = self.option.index
+                $(elem).parent().parent().remove()
+                self._showHideRemoveActionButton()
+
+                return self
+            },
+
+            /**
+             *
+             * @returns {*}
+             * @private
+             */
+            _showHideRemoveActionButton: function () {
+                const self = this,
+                    items = self.option.container.find('.field'),
+                    lastItem = items.last(),
+                    removeButton = self.option.action.remove
+                self.option.index = items.index(lastItem);
+                if (items.index(lastItem) > 0) {
+                    return removeButton.show()
+                }
+
+                return removeButton.hide()
+            },
+        }
+
+        $(document).ready(function () {
+            fields.init()
+
+            fields.option.container.on('input', '.block-title', function (e) {
+                const elem = e.target;
+                $(elem).parent().find('[type=text]').attr('name', 'parameters[' + e.currentTarget.innerText + ']')
+            })
+
+            fields.option.container.on('click', '.removeButtonAction', function (e) {
+                fields.removeField(e.target)
+            })
+
+            $('#addButtonAction').click(function (e) {
+                e.preventDefault();
+                fields.addField()
+            })
+        })
+    })
+</script>
